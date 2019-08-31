@@ -1,35 +1,27 @@
 import re #Regular Expression Tools
 import sys #Use command line arguments
 
-def check(word,file):
-    newFile = open(file).read()
-    if re.match(word,newFile):
-        return False
-    else:
-        return True
-
 inputFile = sys.argv[1]
 outputFile = sys.argv[2]
 
 count = 0
 
-file = open(inputFile).read()
-file2 = open(outputFile,"w")
+file = open(inputFile).read().lower()
+file2 = open(outputFile,'w')
+newString = re.sub('[^a-zA-Z0-9]',' ',file)
+sortedNewString = newString.split()
+sortedNewString.sort()
 
-print(file)
-for line in file.split():
-    print(line)
+print(sortedNewString)
+for line in sortedNewString:
     for word in line.splitlines():    
-        #if check(word,file2):
+        #if word not in file2.read():
             print(line)
             count = file.count(word)
             print(count)
-            file2.write(line+" "+str(count))
+            file2.write(line+" "+str(count)+"\n")
+            #file2.read()
 
-#with open('words.txt','r') as f:
- #   for line in f:
-  #      for word in line.split():
-   #        print(word)      
 file2.close()
 
 
