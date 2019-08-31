@@ -20,7 +20,6 @@ for line in sortedNewString:
             count = file.count(word)
             print(count)
             file2.write(line+" "+str(count)+"\n")
-            #file2.read()
 
 file2.close()
 
