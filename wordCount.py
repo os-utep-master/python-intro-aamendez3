@@ -14,13 +14,12 @@ sortedNewString.sort()
 
 print(sortedNewString)
 for line in sortedNewString:
+    print(line)
     for word in line.splitlines():    
-        #if word not in file2.read():
-            print(line)
-            count = file.count(word)
-            print(count)
-            file2.write(line+" "+str(count)+"\n")
-
+        count = file.count(word)
+        flagWord = count - 1
+        print(word+" "+str(count))
+        file2.write(word+" "+str(count)+"\n")
 file2.close()
 
 
