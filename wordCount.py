@@ -6,7 +6,7 @@ outputFile = sys.argv[2]
 
 file = open(inputFile).read().lower() #Open and read the file in lowercase
 file2 = open(outputFile,'w') #Open the file and be ready to write
-newString = re.sub('[^a-zA-Z0-9]',' ',file) #Ignore anything that is not a letter or number
+newString = re.sub('[^a-zA-Z0-9]','',file) #Ignore anything that is not a letter or number
 sortedNewString = newString.split() #Spliting the word into a list
 sortedNewString.sort() #Sorting the list in alphabetical order
 
