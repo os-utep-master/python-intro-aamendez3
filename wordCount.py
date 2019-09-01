@@ -12,14 +12,19 @@ newString = re.sub('[^a-zA-Z0-9]',' ',file)
 sortedNewString = newString.split()
 sortedNewString.sort()
 
-print(sortedNewString)
-for line in sortedNewString:
-    print(line)
-    for word in line.splitlines():    
-        count = file.count(word)
-        flagWord = count - 1
-        print(word+" "+str(count))
-        file2.write(word+" "+str(count)+"\n")
+oneDicto = {}
+#print(sortedNewString)
+
+for word in sortedNewString:
+        if word in oneDicto.keys():
+                oneDicto[word] = oneDicto[word] + 1
+        else:
+                oneDicto[word] = 1
+
+for word in oneDicto.keys():
+        file2.write(word+" "+str(oneDicto[word])+"\n")
+        
+
 file2.close()
 
 
